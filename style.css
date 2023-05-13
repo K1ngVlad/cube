@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+}
+
+.container {
+  perspective: 500px;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  user-select: none;
+}
+
+.cube {
+  position: relative;
+  transform-style: preserve-3d;
+  width: 300px;
+  height: 300px;
+}
+
+.acide {
+  position: absolute;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border: solid 2px black;
+  color: white;
+  font-family: sans-serif;
+  font-size: 30px;
+  background: blue;
+  text-align: center;
+}
+.front {
+  transform: translateZ(150px);
+}
+.back {
+  transform: rotateY(180deg) translateZ(150px);
+}
+.right {
+  transform: rotateY(90deg) translateZ(150px);
+  background: none;
+  align-items: flex-end;
+}
+.left {
+  transform: rotateY(-90deg) translateZ(150px);
+}
+.top {
+  transform: rotateX(90deg) translateZ(150px);
+  flex-direction: column;
+}
+.bot {
+  transform: rotateX(-90deg) translateZ(150px);
+  background: url(assets/nature.jpg) 100% 100% no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  animation: bluring infinite 3s;
+}
+
+@keyframes bluring {
+  0% {
+    filter: blur(0px) hue-rotate(0);
+  }
+  50% {
+    filter: blur(3px) hue-rotate(-90deg);
+  }
+  100% {
+    filter: blur(0px) hue-rotate(0);
+  }
+}
+
+.complete {
+  width: 100%;
+  height: 100%;
+  background: none;
+  border: none;
+  transform: rotateY(90deg);
+}
+
+@keyframes rotateCube {
+  0% {
+    transform: rotate3d(1, 1, 1, 0deg);
+  }
+  20% {
+    transform: rotate3d(2, 1, 1, 360deg);
+  }
+  40% {
+    transform: rotate3d(2, 1, 1, 360deg);
+  }
+  60% {
+    transform: rotate3d(1, 2, 3, 0deg);
+  }
+  80% {
+    transform: rotate3d(1, 2, 3, 90deg);
+  }
+  95% {
+    transform: rotate3d(5, 4, 6, 360deg);
+  }
+  95% {
+    transform: rotate3d(5, 4, 6, 360deg);
+  }
+}
+
+.redbtn {
+  margin-top: 10px;
+  background: red;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 5px 1px red;
+  cursor: pointer;
+}
+.redbtn:active {
+  box-shadow: 0 0 2px 1px red;
+}
+
+.black {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: black;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.blacktext {
+  color: white;
+  font-size: 40px;
+}
+
+.nature {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
