@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --translate: 150px;
+}
+
 body {
   overflow: hidden;
 }
@@ -42,25 +46,25 @@ body {
   text-align: center;
 }
 .front {
-  transform: translateZ(150px);
+  transform: translateZ(var(--translate));
 }
 .back {
-  transform: rotateY(180deg) translateZ(150px);
+  transform: rotateY(180deg) translateZ(var(--translate));
 }
 .right {
-  transform: rotateY(90deg) translateZ(150px);
+  transform: rotateY(90deg) translateZ(var(--translate));
   background: none;
   align-items: flex-end;
 }
 .left {
-  transform: rotateY(-90deg) translateZ(150px);
+  transform: rotateY(-90deg) translateZ(var(--translate));
 }
 .top {
-  transform: rotateX(90deg) translateZ(150px);
+  transform: rotateX(90deg) translateZ(var(--translate));
   flex-direction: column;
 }
 .bot {
-  transform: rotateX(-90deg) translateZ(150px);
+  transform: rotateX(-90deg) translateZ(var(--translate));
   background: url(assets/nature.jpg) 100% 100% no-repeat;
   background-size: cover;
   background-position: center;
@@ -86,30 +90,6 @@ body {
   background: none;
   border: none;
   transform: rotateY(90deg);
-}
-
-@keyframes rotateCube {
-  0% {
-    transform: rotate3d(1, 1, 1, 0deg);
-  }
-  20% {
-    transform: rotate3d(2, 1, 1, 360deg);
-  }
-  40% {
-    transform: rotate3d(2, 1, 1, 360deg);
-  }
-  60% {
-    transform: rotate3d(1, 2, 3, 0deg);
-  }
-  80% {
-    transform: rotate3d(1, 2, 3, 90deg);
-  }
-  95% {
-    transform: rotate3d(5, 4, 6, 360deg);
-  }
-  95% {
-    transform: rotate3d(5, 4, 6, 360deg);
-  }
 }
 
 .redbtn {
@@ -149,4 +129,24 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+.acideimg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 768px) {
+  .cube {
+    width: 100px;
+    height: 100px;
+  }
+  :root {
+    --translate: 50px;
+  }
+  .acide {
+    font-size: 16px;
+  }
 }
